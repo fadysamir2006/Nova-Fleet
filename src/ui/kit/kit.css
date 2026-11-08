@@ -1,0 +1,346 @@
+/* ============================================================================
+   Nova Fleet — shared UI kit
+   Loaded before the component stylesheets (style.css, theme.css, menu.css,
+   hud.css) so existing screens can override the baseline. All selectors are
+   original; no icon font or third-party UI library is used.
+   ========================================================================== */
+
+/* Buttons ------------------------------------------------------------------ */
+
+.ui-button {
+  --ui-tone: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 13px;
+  color: var(--text);
+  background: rgba(8, 22, 34, 0.72);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  transition:
+    color 120ms ease,
+    background 120ms ease,
+    border-color 120ms ease,
+    opacity 120ms ease;
+}
+
+.ui-button:hover:not(:disabled) {
+  color: var(--accent-bright);
+  background: rgba(95, 220, 255, 0.12);
+  border-color: var(--line-strong);
+}
+
+.ui-button:active:not(:disabled) {
+  background: rgba(95, 220, 255, 0.2);
+}
+
+.ui-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ui-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.ui-button svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.ui-button--icon {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+}
+
+.ui-button--sm {
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: 8px;
+}
+
+.ui-button--lg {
+  gap: 9px;
+  padding: 10px 18px;
+  font-size: 12px;
+}
+
+.ui-button--solid {
+  color: #031018;
+  background: linear-gradient(135deg, var(--accent-bright), var(--accent));
+  border-color: rgba(179, 243, 255, 0.75);
+}
+
+.ui-button--solid:hover:not(:disabled) {
+  color: #031018;
+  background: linear-gradient(135deg, #ffffff, var(--accent-bright));
+}
+
+.ui-button--ghost {
+  background: transparent;
+}
+
+.ui-button--quiet {
+  color: var(--text-soft);
+  background: transparent;
+  border-color: transparent;
+}
+
+.ui-button--danger {
+  --ui-tone: var(--danger);
+}
+
+.ui-button--warm {
+  --ui-tone: var(--warm);
+}
+
+.ui-button--good {
+  --ui-tone: var(--good);
+}
+
+.ui-button--muted {
+  --ui-tone: var(--muted);
+}
+
+.ui-button.is-active {
+  color: var(--accent-bright);
+  border-color: rgba(95, 220, 255, 0.65);
+  box-shadow: inset 0 0 12px rgba(95, 220, 255, 0.16);
+}
+
+.ui-button__label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Panels ------------------------------------------------------------------- */
+
+.ui-panel {
+  min-width: 0;
+}
+
+.ui-panel--surface {
+  background: linear-gradient(158deg, rgba(8, 22, 34, 0.86), rgba(3, 10, 17, 0.72));
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+.ui-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ui-panel__heading {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ui-panel__eyebrow {
+  color: var(--accent);
+  font-family: var(--font-mono, monospace);
+  font-size: 7px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ui-panel__title {
+  overflow: hidden;
+  color: var(--text);
+  font-family: var(--font-display, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ui-panel__actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+}
+
+.ui-panel__close {
+  width: 28px;
+  height: 28px;
+}
+
+.ui-panel__body {
+  min-width: 0;
+}
+
+.ui-panel__body--flow {
+  display: flex;
+  flex-direction: column;
+}
+
+.ui-panel__body--contents {
+  display: contents;
+}
+
+.ui-panel__foot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--line);
+}
+
+/* Bars --------------------------------------------------------------------- */
+
+.ui-bar {
+  --ui-tone: var(--accent);
+  position: relative;
+  display: block;
+  overflow: hidden;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ui-bar--sm {
+  height: 3px;
+}
+
+.ui-bar--lg {
+  height: 6px;
+}
+
+.ui-bar--danger {
+  --ui-tone: var(--danger);
+}
+
+.ui-bar--warm {
+  --ui-tone: var(--warm);
+}
+
+.ui-bar--good {
+  --ui-tone: var(--good);
+}
+
+.ui-bar--muted {
+  --ui-tone: var(--muted);
+}
+
+.ui-bar__fill {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--ui-tone);
+  transition: width 120ms linear;
+}
+
+/* Rings -------------------------------------------------------------------- */
+
+.ui-ring {
+  display: block;
+  overflow: visible;
+}
+
+.ui-ring__arc {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 140ms linear;
+}
+
+/* Tabs --------------------------------------------------------------------- */
+
+.ui-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+}
+
+.ui-tabs__tab {
+  padding: 6px 10px;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ui-tabs__tab:hover:not(:disabled) {
+  color: var(--text-soft);
+}
+
+.ui-tabs__tab[aria-selected="true"] {
+  color: var(--accent-bright);
+  border-bottom-color: var(--accent);
+}
+
+.ui-tabs__tab:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.ui-tabs__tab:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Tooltips ----------------------------------------------------------------- */
+
+.ui-tooltip {
+  position: fixed;
+  z-index: 4000;
+  max-width: min(260px, calc(100vw - 16px));
+  padding: 6px 8px;
+  color: var(--text);
+  background: rgba(3, 10, 17, 0.97);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.42);
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  pointer-events: none;
+}
+
+.ui-tooltip[hidden] {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .ui-button {
+    padding-block: 9px;
+  }
+
+  .ui-button--icon {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-button,
+  .ui-bar__fill,
+  .ui-ring__arc {
+    transition: none;
+  }
+}

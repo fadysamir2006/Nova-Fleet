@@ -1,0 +1,109 @@
+.fitting-screen {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary, #eef6ff);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  background: rgba(4, 10, 18, 0.98);
+}
+
+.fitting-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: linear-gradient(90deg, rgba(95,220,255,0.1) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(95,220,255,0.3);
+}
+.fitting-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(95,220,255,0.08);
+  border: 1px solid rgba(95,220,255,0.35);
+  color: #5fdcff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+.fitting-back-btn:hover { background: rgba(95,220,255,0.16); }
+.fitting-back-arrow { font-size: 18px; line-height: 1; }
+[dir="rtl"] .fitting-back-arrow { display: inline-block; transform: scaleX(-1); }
+.fitting-header h2 { margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: 3px; flex: 1; }
+
+.fitting-main { display: flex; flex: 1; gap: 20px; padding: 16px 20px; overflow: hidden; min-height: 0; }
+.fitting-left { flex: 2; position: relative; display: flex; align-items: center; justify-content: center; min-width: 280px; }
+.fitting-hull-preview { position: relative; width: 380px; height: 380px; display: flex; align-items: center; justify-content: center; }
+.fitting-hull-ring { position: absolute; width: 100%; height: 100%; border: 2px solid rgba(95,220,255,0.4); border-radius: 50%; animation: fitting-rotate 60s linear infinite; }
+@keyframes fitting-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.fitting-hull-model { width: 120px; height: 120px; clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%); }
+.fitting-hull-model--3d { background: radial-gradient(circle at 30% 30%, rgba(125,255,177,0.5), rgba(95,220,255,0.15) 60%, rgba(10,20,30,0.8)); box-shadow: 0 0 30px rgba(95,220,255,0.2), inset 0 0 20px rgba(125,255,177,0.1); }
+
+.fitting-slots { position: absolute; width: 380px; height: 380px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.fitting-slot { position: absolute; width: 62px; height: 62px; transform: translate(-50%, -50%); background: rgba(10,20,30,0.85); border: 2px solid rgba(95,220,255,0.5); color: var(--text-primary, #eef6ff); border-radius: 50%; cursor: pointer; font-family: 'Share Tech Mono', monospace; font-size: 12px; transition: all 0.2s; display: flex; align-items: center; justify-content: center; padding: 4px; }
+.fitting-slot:hover { background: rgba(95,220,255,0.15); border-color: var(--accent-bright, #8ae8ff); box-shadow: 0 0 10px rgba(95,220,255,0.4); }
+.fitting-slot-filled { background: rgba(125,255,177,0.12); }
+.fitting-slot-high { border-color: rgba(255,138,61,0.75); }
+.fitting-slot-mid { border-color: rgba(95,220,255,0.75); }
+.fitting-slot-low { border-color: rgba(142,240,168,0.75); }
+.fitting-slot-icon { display: flex; }
+.fitting-slot-icon svg, .fitting-slot-glyph svg { display: block; max-width: 100%; height: auto; }
+.fitting-slot-tier { position: absolute; bottom: 1px; inset-inline-end: 3px; font-size: 9px; font-weight: 700; }
+.fitting-slot-glyph { opacity: 0.7; }
+
+.fitting-right { flex: 1; display: flex; flex-direction: column; gap: 12px; overflow: hidden; min-width: 320px; }
+.fitting-stats { background: rgba(10,20,30,0.7); border: 1px solid rgba(95,220,255,0.3); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.fitting-stats-title { font-size: 15px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; color: var(--accent-bright, #8ae8ff); }
+.fitting-stat-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 3px 0; border-bottom: 1px solid rgba(95,220,255,0.08); font-size: 13px; }
+.fitting-stat-label { color: rgba(255,255,255,0.78); }
+.fitting-stat-val { font-family: 'Share Tech Mono', monospace; color: #fff; }
+.fitting-bar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; margin-top: 6px; font-size: 12px; }
+.fitting-bar-track { height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden; }
+.fitting-bar-fill { height: 100%; background: linear-gradient(90deg, #5fdcff, #7dffb1); border-radius: 4px; }
+
+.fitting-module-list { background: rgba(10,20,30,0.7); border: 1px solid rgba(95,220,255,0.3); padding: 10px; display: flex; flex-direction: column; gap: 8px; max-height: 320px; overflow-y: auto; min-height: 80px; flex: 1 1 auto; }
+.fitting-module-header { font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-bright, #8ae8ff); margin-bottom: 2px; }
+.fitting-module-empty { padding: 12px; color: rgba(255,255,255,0.65); font-size: 13px; }
+.fitting-module-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px; background: rgba(20,30,40,0.85); border: 1px solid rgba(95,220,255,0.2); color: var(--text-primary, #eef6ff); cursor: pointer; text-align: start; font-family: 'Rajdhani', sans-serif; transition: all 0.15s; width: 100%; }
+.fitting-module-item:hover:not(.is-disabled) { background: rgba(95,220,255,0.12); border-color: var(--accent-bright, #8ae8ff); }
+.fitting-module-item.is-disabled { opacity: 0.55; cursor: not-allowed; }
+.fitting-module-icon { flex: 0 0 32px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.fitting-module-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.fitting-module-name { font-size: 14px; font-weight: 600; }
+.fitting-module-stats { font-size: 12px; color: rgba(255,255,255,0.75); font-family: 'Share Tech Mono', monospace; }
+.fitting-module-cost { flex: 0 0 auto; font-family: 'Share Tech Mono', monospace; font-size: 12px; color: #7dffb1; }
+.fitting-module-reason { display: block; font-size: 12px; color: #ff8a3d; margin-top: 2px; }
+.fitting-tier { font-size: 10px; padding: 1px 4px; border: 1px solid currentColor; border-radius: 3px; font-family: 'Share Tech Mono', monospace; }
+.tier-I { color: #7dffb1; } .tier-II { color: #5fdcff; } .tier-III { color: #ff8a3d; }
+
+.fitting-detail { background: rgba(10,20,30,0.8); border: 1px solid rgba(125,255,177,0.25); padding: 10px 12px; max-height: 220px; overflow-y: auto; font-size: 13px; }
+.fitting-detail__head { margin-bottom: 6px; font-size: 15px; }
+.fitting-detail__body { color: rgba(255,255,255,0.85); margin-bottom: 8px; line-height: 1.35; }
+.fitting-detail__compare { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px; }
+.fitting-detail__cmp-title { font-size: 12px; color: var(--accent-bright, #8ae8ff); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+.fitting-cmp-row { display: flex; justify-content: space-between; gap: 8px; padding: 2px 0; font-family: 'Share Tech Mono', monospace; font-size: 12px; }
+.fitting-cmp-row.is-up { color: #7dffb1; }
+.fitting-cmp-row.is-down { color: #ff7a5c; }
+.fitting-cmp-row.is-same { color: rgba(255,255,255,0.55); }
+.fitting-detail__warn { margin-top: 6px; color: #ff8a3d; font-size: 12px; }
+.fitting-detail__actions { margin-top: 10px; display: flex; gap: 8px; }
+
+.fitting-action-bar { display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding: 12px 20px; border-top: 1px solid rgba(95,220,255,0.2); background: rgba(5,12,20,0.7); }
+.fitting-apply-btn { position: relative; display: inline-flex; align-items: center; gap: 8px; padding-inline-end: 16px; }
+.fitting-unsaved-badge { position: absolute; top: 7px; inset-inline-end: 7px; width: 8px; height: 8px; padding: 0; border-radius: 999px; background: #ffb36b; border: 0; box-shadow: 0 0 0 2px rgba(255,179,107,0.22); pointer-events: none; }
+.fitting-toast { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgba(20,40,30,0.95); border: 1px solid #7dffb1; color: #7dffb1; padding: 10px 18px; border-radius: 6px; font-size: 14px; z-index: 10050; }
+
+html[dir="rtl"] .fitting-screen { font-size: 14px; }
+html[dir="rtl"] .fitting-stat-row, html[dir="rtl"] .fitting-module-stats, html[dir="rtl"] .fitting-module-reason,
+html[dir="rtl"] .fitting-detail, html[dir="rtl"] .fitting-cmp-row { font-size: 13px; }
+html[dir="rtl"] .fitting-back-btn, html[dir="rtl"] .fitting-header h2 { font-size: 15px; }
+html[dir="rtl"] .fitting-header h2 { font-size: 22px; }
+
+@media (max-width: 900px) {
+  .fitting-main { flex-direction: column; overflow-y: auto; }
+  .fitting-left { flex: 0 0 auto; }
+  .fitting-hull-preview, .fitting-slots { width: 300px; height: 300px; }
+}
