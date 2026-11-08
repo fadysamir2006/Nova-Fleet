@@ -1,0 +1,32 @@
+{
+  "name": "nova-fleet",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Nova Fleet — an original, mobile-first 3D space game for the browser.",
+  "scripts": {
+    "predev": "node scripts/check-i18n.mjs",
+    "dev": "vite --host",
+    "prebuild": "node scripts/check-i18n.mjs",
+    "build": "tsc --noEmit && vite build",
+    "lint": "eslint . --max-warnings=0",
+    "preview": "vite preview --host",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "generate:models": "node scripts/generate-placeholder-models.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/three": "^0.186.0",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.0",
+    "vite": "^8.3.5",
+    "vitest": "^2.1.8"
+  }
+}
